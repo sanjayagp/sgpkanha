@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+
+    <record model="ir.module.category" id="kanha_user_category">
+            <field name="name">Kanha User Type</field>
+            <field name="description">Kanha User Type</field>
+            <field name="sequence">20</field>
+    </record>
+
+
+    <record id="kanha.project_user" model="res.groups">
+        <field name="name">Project User</field>
+        <field name="category_id" ref="kanha_user_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">the user will be able to add NMR</field>
+    </record>
+
+    <record id="kanha.project_manager" model="res.groups">
+        <field name="name">Project Manager</field>
+        <field name="category_id" ref="kanha_user_category"/>
+        <field name="implied_ids" eval="[(4, ref('kanha.project_user'))]"/>
+        <field name="comment">the user will be able to manage projects </field>
+    </record>
+
+    <record id="kanha.project_admin" model="res.groups">
+        <field name="name">Project Admin</field>
+        <field name="category_id" ref="kanha_user_category"/>
+        <field name="implied_ids" eval="[(4, ref('kanha.project_manager'))]"/>
+        <field name="comment">the user will be able to adminster all projects</field>
+    </record>
+
+
+
+
+</data>
+</openerp>

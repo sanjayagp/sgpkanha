@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+    <!-- project Form View -->
+    <record model="ir.ui.view" id="view_kanha_project_form">
+      <field name="name">kanha.project.form</field>
+      <field name="model">kanha.project</field>
+      <field name="arch" type="xml">
+        <form string="List of Project">
+          <group>
+            <field name="name"/>
+            <field name="description"/>
+            <field name="sequence"/>
+            <field name="manager"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- kanha Project Tree View -->
+    <record model="ir.ui.view" id="view_kanha_project_tree">
+      <field name="name">kanha.project.tree</field>
+      <field name="model">kanha.project</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Project" editable="bottom">
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            <field name="description"/>
+            <field name="manager"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_kanha_project">
+      <field name="name">Project</field>
+      <field name="res_model">kanha.project</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new Project
+          </p>
+        </field>
+    </record>
+
+    <!-- location Form View -->
+    <record model="ir.ui.view" id="view_kanha_location_form">
+      <field name="name">kanha.location.form</field>
+      <field name="model">kanha.location</field>
+      <field name="arch" type="xml">
+        <form string="List of Project">
+          <group>
+            <field name="name"/>
+            <field name="description"/>
+            <field name="sequence"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- kanha Project Tree View -->
+    <record model="ir.ui.view" id="view_kanha_location_tree">
+      <field name="name">kanha.location.tree</field>
+      <field name="model">kanha.location</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Project" editable="bottom">
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_kanha_location">
+      <field name="name">Location</field>
+      <field name="res_model">kanha.location</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new Location
+          </p>
+        </field>
+    </record>
+
+
+    <!-- New note Tree View -->
+    <record model="ir.ui.view" id="view_kanha_nmr_tree">
+      <field name="name">kanha.nmr.tree</field>
+      <field name="model">kanha.nmr</field>
+      <field name="arch" type="xml">
+        <tree string="NMR">
+          <field name="date"/>
+          <field name="labour"/>
+          <field name="project"/>
+          <field name="location"/>
+          <field name="workdone"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- New note Form View -->
+    <record model="ir.ui.view" id="view_kanha_nmr_form">
+        <field name="name">kanha.nmr.form</field>
+        <field name="model">kanha.nmr</field>
+        <field name="arch" type="xml">
+            <form string="NMR Detail" class="oe_form_nomargin o_note_form_view">
+                <header>
+                </header>
+                <sheet>
+		   <group col="2">
+		    <group>
+                    <field name="labour"/>
+                    <field name="location"/>
+		    </group>
+		    <group>
+                    <field name="date"/>
+		    </group>
+		   </group>
+		    <label for="project"/>
+                    <field name="project"/>
+		    <label for="workdone"/>
+                    <field name="workdone" widget="html" class="oe_memo" editor_height="450px" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search note  -->
+    <record model="ir.ui.view" id="view_kanha_nmr_filter">
+      <field name="name">kanha.nmr.search</field>
+      <field name="model">kanha.nmr</field>
+      <field name="arch" type="xml">
+        <search string="NMR">
+          <field name="workdone" string="Work Done"/>
+          <field name="date"/>
+          <field name="labour"/>
+          <field name="project"/>
+          <field name="location"/>
+        </search>
+      </field>
+    </record>
+
+    <!-- Action -->
+    <record model="ir.actions.act_window" id="action_kanha_nmr">
+      <field name="name">NMR</field>
+      <field name="res_model">kanha.nmr</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="view_kanha_nmr_filter"/>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new NMR detail
+          </p>
+        </field>
+    </record>
+
+    <menuitem name="Kanha" id="menu_kanha" sequence="3" />
+
+    <menuitem name="NMR" id="menu_kanha_nmr" parent="menu_kanha" sequence="3" action="kanha.action_kanha_nmr" />
+    <menuitem name="Project" id="menu_kanha_project" parent="menu_kanha" action="kanha.action_kanha_project" sequence="21" />
+    <menuitem name="Location" id="menu_kanha_location" parent="menu_kanha" action="kanha.action_kanha_location" sequence="23" />
+
+  </data>
+</openerp>

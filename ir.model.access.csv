@@ -1,9 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_kanha_nmr,kanha.nmr,model_nmr_details,kanha.project_user,1,1,1,0
-access_kanha_nmr,kanha.nmr,model_nmr_details,kanha.project_manager,1,1,1,1
-access_kanha_location,kanha.location,model_locations,kanha.project_user,1,0,0,0
-access_kanha_location,kanha.location,model_locations,kanha.project_manager,1,0,1,0
-access_kanha_location,kanha.location,model_locations,kanha.project_admin,1,1,1,1
-access_kanha_project,kanha.project,model_projects,kanha.project_user,1,0,0,0
-access_kanha_project,kanha.project,model_projects,kanha.project_manager,1,0,1,0
-access_kanha_project,kanha.project,model_projects,kanha.project_admin,1,1,1,1
+access_kanha_nmr,kanha.nmr,model_kanha_nmr,kanha.project_user,1,1,1,0
+access_kanha_nmr,kanha.nmr,model_kanha_nmr,kanha.project_manager,1,1,1,1
+access_kanha_location,kanha.location,model_kanha_location,kanha.project_user,1,0,0,0
+access_kanha_location,kanha.location,model_kanha_location,kanha.project_manager,1,0,1,0
+access_kanha_location,kanha.location,model_kanha_location,kanha.project_admin,1,1,1,1
+access_kanha_project,kanha.project,model_kanha_project,kanha.project_user,1,0,0,0
+access_kanha_project,kanha.project,model_kanha_project,kanha.project_manager,1,0,1,0
+access_kanha_project,kanha.project,model_kanha_project,kanha.project_admin,1,1,1,1

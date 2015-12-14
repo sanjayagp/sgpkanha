@@ -14,7 +14,7 @@ class resuser(osv.osv):
     _columns = {
         'name': fields.char('Person Name',  required=True),
         'email': fields.char('Email'),
-        'phone': fields.char('Mobile'),
+        'phone': fields.char('Mobile', required=True),
     }
 
 class project(osv.osv):
@@ -22,7 +22,7 @@ class project(osv.osv):
     _description = "List of Projects"
     _columns = {
         'name': fields.char('Project Name',  required=True),
-        'code': fields.integer('Project Code', help="Project Code"),
+        'code': fields.integer('Project Code', help="Project Code", required=True),
         'description': fields.char('Project Description', required=True  ),
         'sequence': fields.integer('Sequence', help="Used to order the projects "),
       #  'manager': fields.many2one('kanha.supervisor', 'Project Manager', help="Project Manager or Supervisor", required=True ),

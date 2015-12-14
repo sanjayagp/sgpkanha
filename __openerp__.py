@@ -21,12 +21,12 @@ Notes can be found in the 'Home' menu.
     'summary': 'Kanha Project Management',
     'sequence': 45,
     'depends': [
-        'hr',
+        'base',
     ],
     'data': [
 	'kanha_security.xml',
 	'ir.model.access.csv',
-        'nmr_view.xml',
+	'nmr_view.xml',
     ],
     'installable': True,
     'application': True,

@@ -1,110 +1,386 @@
 <?xml version="1.0"?>
 <openerp>
-  <data>
-    <!-- project Form View -->
-    <record model="ir.ui.view" id="view_kanha_project_form">
-      <field name="name">kanha.project.form</field>
-      <field name="model">kanha.project</field>
-      <field name="arch" type="xml">
-        <form string="List of Project">
-          <group>
-            <field name="name"/>
-            <field name="description"/>
-            <field name="sequence"/>
-            <field name="manager"/>
-          </group>
-        </form>
-      </field>
-    </record>
+    <data>
 
-    <!-- kanha Project Tree View -->
+ <!-- kanha Project Tree View -->
     <record model="ir.ui.view" id="view_kanha_project_tree">
       <field name="name">kanha.project.tree</field>
       <field name="model">kanha.project</field>
       <field name="field_parent"></field>
       <field name="arch" type="xml">
         <tree string="Project" editable="bottom">
-            <field name="sequence" widget="handle"/>
+            <field name="sequence"/>
+            <field name="code"/>
             <field name="name"/>
             <field name="description"/>
-            <field name="manager"/>
+            <!--   <field name="manager"/> -->
         </tree>
       </field>
     </record>
 
+    <!-- Kanha Project action -->
     <record model="ir.actions.act_window" id="action_kanha_project">
       <field name="name">Project</field>
       <field name="res_model">kanha.project</field>
       <field name="view_type">form</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree</field>
       <field name="context">{}</field>
       <field name="help" type="html">
           <p class="oe_view_nocontent_create">
-            Click to add a new Project
+            Click to add a new project type
           </p>
         </field>
     </record>
 
-    <!-- location Form View -->
-    <record model="ir.ui.view" id="view_kanha_location_form">
-      <field name="name">kanha.location.form</field>
-      <field name="model">kanha.location</field>
+
+
+    <!-- kanha Equipment type Tree View -->
+    <record model="ir.ui.view" id="view_kanha_equipment_type_tree">
+      <field name="name">kanha.equipment.type.tree</field>
+      <field name="model">kanha.equipment.type</field>
+      <field name="field_parent"></field>
       <field name="arch" type="xml">
-        <form string="List of Project">
-          <group>
+        <tree string="Project" editable="bottom">
             <field name="name"/>
-            <field name="description"/>
-            <field name="sequence"/>
-          </group>
-        </form>
+        </tree>
       </field>
     </record>
 
-    <!-- kanha Project Tree View -->
+    <!-- Kanha Equipment type action -->
+    <record model="ir.actions.act_window" id="action_kanha_equipment_type">
+      <field name="name">Equipment Type</field>
+      <field name="res_model">kanha.equipment.type</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new equipment type
+          </p>
+        </field>
+    </record>
+
+    <!-- kanha Equipment Tree View -->
+    <record model="ir.ui.view" id="view_kanha_equipment_tree">
+      <field name="name">kanha.equipment.tree</field>
+      <field name="model">kanha.equipment</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Project" editable="bottom">
+            <field name="name"/>
+            <field name="equipmenttype"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha Equipment action -->
+    <record model="ir.actions.act_window" id="action_kanha_equipment">
+      <field name="name">Equipment</field>
+      <field name="res_model">kanha.equipment</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new equipment
+          </p>
+        </field>
+    </record>
+
+
+
+    <!-- kanha labour type Tree View -->
+    <record model="ir.ui.view" id="view_kanha_labour_type_tree">
+      <field name="name">kanha.labour.type.tree</field>
+      <field name="model">kanha.labour.type</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Project" editable="bottom">
+            <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha labour type action -->
+    <record model="ir.actions.act_window" id="action_kanha_labour_type">
+      <field name="name">Labour Type</field>
+      <field name="res_model">kanha.labour.type</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new equipment type
+          </p>
+        </field>
+    </record>
+
+    <!-- kanha labour Tree View -->
+    <record model="ir.ui.view" id="view_kanha_labour_tree">
+      <field name="name">kanha.labour.tree</field>
+      <field name="model">kanha.labour</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Project" editable="bottom">
+            <field name="name"/>
+            <field name="labourtype"/>
+            <field name="labourid"/>
+            <field name="rate"/>
+            <field name="phone"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha labour action -->
+    <record model="ir.actions.act_window" id="action_kanha_labour">
+      <field name="name">Labour</field>
+      <field name="res_model">kanha.labour</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new Labour
+          </p>
+        </field>
+    </record>
+
+    <!-- kanha location Tree View -->
     <record model="ir.ui.view" id="view_kanha_location_tree">
       <field name="name">kanha.location.tree</field>
       <field name="model">kanha.location</field>
       <field name="field_parent"></field>
       <field name="arch" type="xml">
         <tree string="Project" editable="bottom">
-            <field name="sequence" widget="handle"/>
             <field name="name"/>
             <field name="description"/>
+            <field name="sequence"/>
         </tree>
       </field>
     </record>
 
-
+    <!-- Kanha location action -->
     <record model="ir.actions.act_window" id="action_kanha_location">
-      <field name="name">Location</field>
+      <field name="name">Locations</field>
       <field name="res_model">kanha.location</field>
       <field name="view_type">form</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree</field>
       <field name="context">{}</field>
       <field name="help" type="html">
           <p class="oe_view_nocontent_create">
-            Click to add a new Location
+            Click to add a new equipment
           </p>
         </field>
     </record>
 
 
-    <!-- New note Tree View -->
+    <!-- kanha contractor Tree View -->
+    <record model="ir.ui.view" id="view_kanha_contractor_tree">
+      <field name="name">kanha.contractor.tree</field>
+      <field name="model">kanha.contractor</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Contractor" editable="bottom">
+            <field name="sequence"/>
+            <field name="name"/>
+            <field name="email"/>
+            <field name="phone"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha contractor action -->
+    <record model="ir.actions.act_window" id="action_kanha_contractor">
+      <field name="name">Contractor</field>
+      <field name="res_model">kanha.contractor</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new Contractor
+          </p>
+        </field>
+    </record>
+
+    <!-- kanha supervisor Tree View -->
+    <record model="ir.ui.view" id="view_kanha_supervisor_tree">
+      <field name="name">kanha.supervisor.tree</field>
+      <field name="model">kanha.supervisor</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Supervisor" editable="bottom">
+            <field name="sequence"/>
+            <field name="name"/>
+            <field name="email"/>
+            <field name="phone"/>
+            <field name="supervisortype_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha supervisor action -->
+    <record model="ir.actions.act_window" id="action_kanha_supervisor">
+      <field name="name">Supervisor</field>
+      <field name="res_model">kanha.supervisor</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new equipment
+          </p>
+        </field>
+    </record>
+
+    <!-- kanha nmrsupervisor Tree View -->
+    <record model="ir.ui.view" id="view_kanha_supervisor_type_tree">
+      <field name="name">kanha.supervisor.type.tree</field>
+      <field name="model">kanha.supervisor.type</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Supervisor Type" editable="bottom">
+            <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha nmrsupervisor action -->
+    <record model="ir.actions.act_window" id="action_kanha_supervisor_type">
+      <field name="name">Supervisor Type</field>
+      <field name="res_model">kanha.supervisor.type</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new Supervisor Type
+          </p>
+        </field>
+    </record>
+
+
+    <!-- kanha billable entity Tree View -->
+    <record model="ir.ui.view" id="view_kanha_billableentity_tree">
+      <field name="name">kanha.billableentity.tree</field>
+      <field name="model">kanha.billableentity</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Project" >
+            <field name="date"/>
+            <field name="name"/>
+            <field name="billedperson"/>
+            <field name="projectname"/>
+            <field name="amount"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha billable entity action -->
+    <record model="ir.actions.act_window" id="action_kanha_billableentity">
+      <field name="name">Billable Entity</field>
+      <field name="res_model">kanha.billableentity</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new billable entity
+          </p>
+        </field>
+    </record>
+
+    <!-- kanha vehicle equipment slip Tree View -->
+    <record model="ir.ui.view" id="view_kanha_vehicleequipmentslip_tree">
+      <field name="name">kanha.vehicleequipmentslip.tree</field>
+      <field name="model">kanha.vehicleequipmentslip</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Vehicleequipmentslip" editable="bottom">
+            <field name="date"/>
+            <field name="name"/>
+            <field name="billedperson"/>
+            <field name="projectname"/>
+            <field name="amount"/>
+            <field name="equipmentnumber"/>
+            <field name="equipmentslipline_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha vehicle equipment slip action -->
+    <record model="ir.actions.act_window" id="action_kanha_vehicleequipmentslip">
+      <field name="name">Vehicle Equipment Slip</field>
+      <field name="res_model">kanha.vehicleequipmentslip</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new equipment
+          </p>
+        </field>
+    </record>
+
+    <!-- kanha vehicle equipment slip line Tree View -->
+    <record model="ir.ui.view" id="view_kanha_vehicleequipmentslip_lines_tree">
+      <field name="name">kanha.vehicleequipmentslip.lines.tree</field>
+      <field name="model">kanha.vehicleequipmentslip.lines</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+        <tree string="Vehicleequipmentslip_lines" editable="bottom">
+            <field name="equipmentslip_id"/>
+            <field name="locationname"/>
+            <field name="meteropening"/>
+            <field name="meterclosing"/>
+            <field name="houropen"/>
+            <field name="hourclose"/>
+            <field name="totalbillablehrs"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanha vehicle equipment slip line action -->
+    <record model="ir.actions.act_window" id="action_kanha_vehicleequipmentslip_lines">
+      <field name="name">Vehicle Equipment Slip Lines</field>
+      <field name="res_model">kanha.vehicleequipmentslip.lines</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new equipment slip line
+          </p>
+        </field>
+    </record>
+
+
+
+
+
+
+
+
+
+   <!-- nmr Tree View -->
     <record model="ir.ui.view" id="view_kanha_nmr_tree">
       <field name="name">kanha.nmr.tree</field>
       <field name="model">kanha.nmr</field>
       <field name="arch" type="xml">
         <tree string="NMR">
           <field name="date"/>
-          <field name="labour"/>
-          <field name="project"/>
+          <field name="name"/>
+          <field name="billedperson"/>
+          <field name="projectname"/>
+          <field name="amount"/>
+
           <field name="location"/>
           <field name="workdone"/>
         </tree>
       </field>
     </record>
 
-    <!-- New note Form View -->
+    <!-- New note Form View 
     <record model="ir.ui.view" id="view_kanha_nmr_form">
         <field name="name">kanha.nmr.form</field>
         <field name="model">kanha.nmr</field>
@@ -126,10 +402,12 @@
                     <field name="project"/>
 		    <label for="workdone"/>
                     <field name="workdone" widget="html" class="oe_memo" editor_height="450px" />
+		    <label for="gatesecuritynumber"/>
+                    <field name="gatesecuritynumber"/>
                 </sheet>
             </form>
         </field>
-    </record>
+    </record> -->
 
     <!-- Search note  -->
     <record model="ir.ui.view" id="view_kanha_nmr_filter">
@@ -137,11 +415,11 @@
       <field name="model">kanha.nmr</field>
       <field name="arch" type="xml">
         <search string="NMR">
-          <field name="workdone" string="Work Done"/>
           <field name="date"/>
-          <field name="labour"/>
-          <field name="project"/>
+          <field name="name"/>
           <field name="location"/>
+          <field name="projectname"/>
+          <field name="billedperson"/>
         </search>
       </field>
     </record>
@@ -162,10 +440,19 @@
     </record>
 
     <menuitem name="Kanha" id="menu_kanha" sequence="3" />
+    <menuitem name="Config" id="menu_kanha_config" parent="menu_kanha" sequence="300" />
 
-    <menuitem name="NMR" id="menu_kanha_nmr" parent="menu_kanha" sequence="3" action="kanha.action_kanha_nmr" />
-    <menuitem name="Project" id="menu_kanha_project" parent="menu_kanha" action="kanha.action_kanha_project" sequence="21" />
-    <menuitem name="Location" id="menu_kanha_location" parent="menu_kanha" action="kanha.action_kanha_location" sequence="23" />
-
+    <menuitem name="Equipment Type" id="menu_kanha_equipmenttype" parent="menu_kanha_config" action="kanha.action_kanha_equipment_type" sequence="23" />
+    <menuitem name="Equipment" id="menu_kanha_equipment" parent="menu_kanha_config" action="kanha.action_kanha_equipment" sequence="24" />
+    <menuitem name="Labour Type" id="menu_kanha_labourtype" parent="menu_kanha_config" action="kanha.action_kanha_labour_type" sequence="25" />
+    <menuitem name="Labour" id="menu_kanha_labour" parent="menu_kanha_config" action="kanha.action_kanha_labour" sequence="26" />
+    <menuitem name="Location" id="menu_kanha_location" parent="menu_kanha_config" action="kanha.action_kanha_location" sequence="27" />
+    <menuitem name="Project" id="menu_kanha_project" parent="menu_kanha_config" action="kanha.action_kanha_project" sequence="28" />
+    <menuitem name="Contractor" id="menu_kanha_contractor" parent="menu_kanha_config" action="kanha.action_kanha_contractor" sequence="30" />
+    <menuitem name="Supervisor" id="menu_kanha_supervisor" parent="menu_kanha_config" action="kanha.action_kanha_supervisor" sequence="31" />
+    <menuitem name="Billable Entity" id="menu_kanha_billableentity" parent="menu_kanha" action="kanha.action_kanha_billableentity" sequence="33" />
+    <menuitem name="Vehicle Equipment Slip" id="menu_kanha_vehicleequipmentslip" parent="menu_kanha" action="kanha.action_kanha_vehicleequipmentslip" sequence="34" />
+    <menuitem name="Vehicle Equipment Slip Lines" id="menu_kanha_vesl" parent="menu_kanha" action="kanha.action_kanha_vehicleequipmentslip_lines" sequence="35" />
+    <menuitem name="NMR" id="menu_kanha_NMR" parent="menu_kanha" action="kanha.action_kanha_nmr" sequence="36" />
   </data>
 </openerp>

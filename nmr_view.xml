@@ -303,7 +303,6 @@
             <field name="projectname"/>
             <field name="amount"/>
             <field name="equipmentnumber"/>
-            <field name="equipmentslipline_ids"/>
         </tree>
       </field>
     </record>

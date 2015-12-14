@@ -10,37 +10,21 @@ from openerp.tools import html2plaintext
 class resuser(models.Model):
     _name = "kanha.resuser"
     _description = "resuser"
-<<<<<<< HEAD
+
     name = fields.Char(string='Person Name',  required=True)
     email = fields.Char(string='Email')
     phone = fields.Char(string='Mobile')
-=======
-    _columns = {
-        'name': fields.char('Person Name',  required=True),
-        'email': fields.char('Email'),
-        'phone': fields.char('Mobile', required=True),
-    }
->>>>>>> f0eee6735ea9087b8d8100332b1eebdd8120c71e
 
 class project(models.Model):
     _name = "kanha.project"
     _description = "List of Projects"
-<<<<<<< HEAD
     
     name = fields.Char(string='Project Name',  required=True)
     code = fields.Integer(string='Project Code', help="Project Code")
     description = fields.Char(string='Project Description', required=True  )
     sequence = fields.Integer(string='Sequence', help="Used to order the projects ")
     #  'manager = fields.Many2one('kanha.supervisor', string='Project Manager', help="Project Manager or Supervisor", required=True )
-=======
-    _columns = {
-        'name': fields.char('Project Name',  required=True),
-        'code': fields.integer('Project Code', help="Project Code", required=True),
-        'description': fields.char('Project Description', required=True  ),
-        'sequence': fields.integer('Sequence', help="Used to order the projects "),
-      #  'manager': fields.many2one('kanha.supervisor', 'Project Manager', help="Project Manager or Supervisor", required=True ),
-    }
->>>>>>> f0eee6735ea9087b8d8100332b1eebdd8120c71e
+
     _order = 'sequence asc'
     _defaults = {
         'sequence' : 1,

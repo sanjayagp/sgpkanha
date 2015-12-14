@@ -6,10 +6,8 @@ access_kanha_equipment_type,kanha.equipment.type,model_kanha_equipment_type,,1,1
 access_kanha_equipment,kanha.equipment,model_kanha_equipment,,1,1,1,1
 access_kanha_labour_type,kanha.labour.type,model_kanha_labour_type,,1,1,1,1
 access_kanha_labour,kanha.labour,model_kanha_labour,,1,1,1,1
-access_kanha_resuser,kanha.resuser,model_kanha_resuser,,1,1,1,1
 access_kanha_supervisor_type,kanha.supervisor.type,model_kanha_supervisor_type,,1,1,1,1
 access_kanha_supervisor,kanha.supervisor,model_kanha_supervisor,,1,1,1,1
-access_kanha_billableentity,kanha.billableentity,model_kanha_billableentity,,1,1,1,1
 access_kanha_vehicleequipmentslip,kanha.vehicleequipmentslip,model_kanha_vehicleequipmentslip,,1,1,1,1
 access_kanha_vehicleequipmentslip_lines,kanha.vehicleequipmentslip.lines,model_kanha_vehicleequipmentslip_lines,,1,1,1,1
 access_kanha_contractor,kanha.contractor,model_kanha_contractor,,1,1,1,1

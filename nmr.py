@@ -7,13 +7,6 @@ from openerp.tools import html2plaintext
 
 
 
-class resuser(models.Model):
-    _name = "kanha.resuser"
-    _description = "resuser"
-
-    name = fields.Char(string='Person Name',  required=True)
-    email = fields.Char(string='Email')
-    phone = fields.Char(string='Mobile')
 
 class project(models.Model):
     _name = "kanha.project"
@@ -23,7 +16,7 @@ class project(models.Model):
     code = fields.Integer(string='Project Code', help="Project Code")
     description = fields.Char(string='Project Description', required=True  )
     sequence = fields.Integer(string='Sequence', help="Used to order the projects ")
-    #  'manager = fields.Many2one('kanha.supervisor', string='Project Manager', help="Project Manager or Supervisor", required=True )
+    manager = fields.Many2many('kanha.supervisor',  string='Project Manager', help="Project Manager or Supervisor", required=True )
 
     _order = 'sequence asc'
     _defaults = {
@@ -66,22 +59,17 @@ class labour_type(models.Model):
     _description = "Labour Type"
     
     name = fields.Char(string='Labour Type', help='default or mason or etc.',  required=True)
-    description = fields.Char(string='Description', required=True)
+    description = fields.Char(string='Description' )
 
 
 class labour(models.Model):
     _name = "kanha.labour"
     _description = "Labour Details"
 
-    _inherits = { 'kanha.resuser' : "resuser_id" }
-
-    
-
-    resuser_id = fields.Many2one('kanha.resuser', string='ResUser', required=True, ondelete='cascade' )
-    labourtype = fields.Many2one('kanha.labour.type', string='Labour Type', help="Labour Type", required=True )
     name = fields.Char(string='Labour Name',  required=True)
+    phone = fields.Char(string='Mobile')
+    labourtype = fields.Many2one('kanha.labour.type', required=True )
     labourid = fields.Char(string='Labour ID',  required=True)
-    phone = fields.Char(string='Phone')
     rate = fields.Integer(string='Labour Rate')
 
 
@@ -91,10 +79,10 @@ class contractor(models.Model):
     _name = "kanha.contractor"
     _description = "contractor"
 
-    _inherits = { 'kanha.resuser' : "resuser_id" }
 
-    
-    resuser_id = fields.Many2one('kanha.resuser', string='ResUser', required=True, ondelete='cascade' )
+    name = fields.Char(string='Contractor Name',  required=True)
+    email = fields.Char(string='Email')
+    phone = fields.Char(string='Mobile')
     sequence = fields.Integer(string='Contractor Sequence Number')
 
 
@@ -109,40 +97,31 @@ class supervisortype(models.Model):
 class supervisor(models.Model):
     _name = "kanha.supervisor"
     _description = "Supervisor"
-    _inherits = { 'kanha.resuser' : "resuser_id" }
     
-    resuser_id = fields.Many2one('kanha.resuser', string='ResUser', required=True, ondelete='cascade' )
+    name = fields.Char(string='Supervisor Name',  required=True)
+    email = fields.Char(string='Email')
+    phone = fields.Char(string='Mobile')
     sequence = fields.Integer(string='Supervisor Sequence Number')
     supervisortype_ids = fields.Many2many('kanha.supervisor.type', string='Supervisor Types')
 
 
 
-class billable_entity(models.Model):
-    _name = "kanha.billableentity"
-    _description = "Billable entity"
-    
-    name = fields.Char(string='Unique Id', required=True)
-    date = fields.Date('Date', required=True, select=1)
-    billedperson = fields.Many2one('kanha.resuser', string='Billed Person', help="Billed person", required=True )
-    projectname = fields.Many2one('kanha.project', string='Project', help="Project name", required=True )
-    amount = fields.Integer(string='Billed Amount', required=True)
-
-    _defaults = {
-        'amount' : 0,
-    }
 
 
 class vehicle_equipment_slip(models.Model):
     _name = "kanha.vehicleequipmentslip"
     _description = "Vehicle Equipment Slip"
 
-    _inherits = { "kanha.billableentity"  : "bill_id"}
 
     
-    bill_id = fields.Many2one('kanha.billableentity', string='Billable Entity', required=True, ondelete='cascade' )
     name = fields.Char(string='Gate Security Number', required=True)
     billedperson = fields.Many2one('kanha.contractor', string='Contractor', help="Contractor", required=True )
+    date = fields.Date('Date', required=True, select=1)
+    projectname = fields.Many2one('kanha.project', string='Project', help="Project name", required=True )
+    amount = fields.Integer(string='Billed Amount', required=True)
+
     equipmentnumber = fields.Many2one('kanha.equipment', string='Equipment Number', help="Equipment Number", required=True )
+    equipmentslip_lines_ids = fields.One2many('kanha.vehicleequipmentslip.lines', 'equipmentslip_id', string='Vehicle Equipment Slip Lines', required=True )
     
 
 
@@ -165,12 +144,13 @@ class nmr(models.Model):
     _name = "kanha.nmr"
     _description = "NMR Details"
 
-    _inherits = { "kanha.billableentity"  : "bill_id"}
 
     
-    bill_id = fields.Many2one('kanha.billableentity', string='Billable Entity', required=True, ondelete='cascade' )
     name = fields.Char(string='Gate Security Number', required=True)
     billedperson = fields.Many2one('kanha.labour', string='Labour Name', help="Labour Name", required=True )
+    date = fields.Date('Date', required=True, select=1)
+    projectname = fields.Many2one('kanha.project', string='Project', help="Project name", required=True )
+    amount = fields.Integer(string='Billed Amount', required=True)
 
     location = fields.Many2one('kanha.location', string='Location Name', help="Location Name", required=True )
     workdone = fields.Html('Brief Description of Work Done ' )
